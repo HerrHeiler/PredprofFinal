@@ -1,6 +1,8 @@
-@app.route('/api/ping')
-def ping():
-    return ({'status':'ok'}, 200)
+from flask import Flask, request
+import requests, json
 
-@app.route('api/business/auth/sign-up', methods=['POST'])
-def b2b_sign_up():
+token = 'wAruBW'
+
+pageURL = "https://olimp.miet.ru/ppo_it/api"
+req = requests.get(pageURL)
+print(len(json.loads(req.content.decode("UTF-8"))["message"]["data"]))
